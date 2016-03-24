@@ -76,9 +76,7 @@ results <- results[!(grepl("^\\.", (results$titles))), ]
 # strip leading period from source file path
 results$SourceFile <- sub("^\\.\\/", "", results$SourceFile)
 
-# annotate the 'data' data types
-results$types[file_ext(results$SourceFile) == "pkf"] <- ".sfk: Sound Forge data file"
-
+# annotate the data types
 results$types[file_ext(results$SourceFile) == "wav"] <- paste(".wav:", results$types[file_ext(results$SourceFile) == "wav"], sep = " ")
 
 results$types[file_ext(results$SourceFile) == "acd"] <- ".acd: ACID data file"
@@ -90,8 +88,6 @@ results$types[file_ext(results$SourceFile) == "ana"] <- ".ana: ??? data file"
 results$types[file_ext(results$SourceFile) == "grn"] <- ".grn: ??? data file"
 
 # annotate the file sizes
-results$sizes[file_ext(results$SourceFile) == "pkf"] <- paste(".pkf:", results$sizes[file_ext(results$SourceFile) == "pfk"], sep = " ")
-
 results$sizes[file_ext(results$SourceFile) == "wav"] <- paste(".wav:", results$sizes[file_ext(results$SourceFile) == "wav"], sep = " ")
 
 results$sizes[file_ext(results$SourceFile) == "acd"] <- paste(".acd:", results$sizes[file_ext(results$SourceFile) == "acd"], sep = " ")
